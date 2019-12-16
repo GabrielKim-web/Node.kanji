@@ -65,23 +65,27 @@ class DisplayCardData extends Component {
          {this.state.editing ? 
             <div className="editingCard">
                {/* Set all the values equal to what they are at that ID */}
-               <input placeholder="Kanji" value={kanjiInput} onChange={(e) => this.handleKanji(e.target.value)}></input>
-               <input placeholder="Furigana" value={furiganaInput} onChange={(e) => this.handleFurigana(e.target.value)}></input>
-               <input placeholder="Romanji" value={romanjiInput} onChange={(e) => this.handleRomanji(e.target.value)}></input>
-               <input placeholder="English" value={englishInput} onChange={(e) => this.handleEnglish(e.target.value)}></input>
-               <button onClick={() => this.editCard(id, {kanji: kanjiInput, furigana: furiganaInput, romanji: romanjiInput, english: englishInput})}>Submit Changes</button>
+               <input className="editKanji" placeholder="Kanji" value={kanjiInput} onChange={(e) => this.handleKanji(e.target.value)}></input>
+               <input className="editFurigana" placeholder="Furigana" value={furiganaInput} onChange={(e) => this.handleFurigana(e.target.value)}></input>
+               <input className="editRomanji" placeholder="Romanji" value={romanjiInput} onChange={(e) => this.handleRomanji(e.target.value)}></input>
+               <input className="editEnglish" placeholder="English" value={englishInput} onChange={(e) => this.handleEnglish(e.target.value)}></input>
+               <button className="editDetails" onClick={() => this.editCard(id, {kanji: kanjiInput, furigana: furiganaInput, romanji: romanjiInput, english: englishInput})}>Submit Changes</button>
             </div> :
-            <div className="displayingCard">
-               {/* I don't think diplaying ID is necessary. */}
-               {/* <span className="id">{id}</span> */}
-               <span className="kanji">{kanji}</span>
-               <span className="furigana">{furigana}</span>
-               <span className="romanji">{romanji}</span>         
-               <span className="english">{english}</span>
+            <div className="cardContents">
+               <div className="displayingCard">
+                  {/* I don't think diplaying ID is necessary. */}
+                  {/* <span className="id">{id}</span> */}
+                  <span className="kanji">{kanji}</span>
+                  <span className="furigana">{furigana}</span>
+                  <span className="romanji">{romanji}</span>         
+                  <span className="english">{english}</span>
+               </div>
+               <div className="editingCardButtons">
+                  <button id="editCard" onClick={() => this.changeEditState()}>Edit</button>
+                  <button id="deleteCard" onClick={() => this.deleteCard(id)}>Delete</button>
+               </div>
             </div>
          }
-         <button className="editCard" onClick={() => this.changeEditState()}>Edit</button>
-         <button className="deleteCard" onClick={() => this.deleteCard(id)}>Delete</button>
          </div>
       </div>
       )

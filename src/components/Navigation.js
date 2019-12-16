@@ -8,7 +8,9 @@ class Navigation extends Component {
       return(
          <div id="Navigation">
             <ul className="mainHeader">
-               <li>Node.kanji</li>
+               <li>
+                  <link rel="icon" href="../public/20741.png"></link>
+                  Node.kanji</li>
                <li>
                   <ul>
                      <li onClick={() => this.props.changeMode()}>Change Mode: {this.props.displayCard ? 

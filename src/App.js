@@ -50,20 +50,16 @@ class App extends Component {
           <div className="Clock">
             <Clock 
             displayCard={displayCard}
-            numCards={numCards}
-            />
+            numCards={numCards}/>
           </div>
-          <main>
-            <div className="cardBody">
+          <div className="cardBody">
             {displayCard ? 
                 <DisplayCardBase 
                 cards={cards}
                 updateDatabase={this.updateDatabase}/> : 
                 <DisplayCardGame 
                 cards={cards}/>}
-            </div>
-          </main>
-          
+          </div>
       </div>
     );
   }

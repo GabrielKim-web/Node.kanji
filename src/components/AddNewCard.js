@@ -43,11 +43,11 @@ class AddNewCard extends Component {
          <div id="AddNewCard">
             <h1 className="AddNewCardHeader">Add a New Card</h1>
             {/* Adding value=state of inputs allows boxes to be reset after a card is added */}
-            <input placeholder="Kanji" value={kanjiInput} onChange={(e) => this.handleKanji(e.target.value)}></input>
-            <input placeholder="Furigana" value={furiganaInput} onChange={(e) => this.handleFurigana(e.target.value)}></input>
-            <input placeholder="Romanji" value={romanjiInput} onChange={(e) => this.handleRomanji(e.target.value)}></input>
-            <input placeholder="English" value={englishInput} onChange={(e) => this.handleEnglish(e.target.value)}></input>
-            <button onClick={() => this.addNewCard({kanji: kanjiInput, furigana: furiganaInput, romanji: romanjiInput, english: englishInput})}>Add Card</button> 　
+            <input className="addKanji" placeholder="Kanji" value={kanjiInput} onChange={(e) => this.handleKanji(e.target.value)}></input>
+            <input className="addFurigana" placeholder="Furigana" value={furiganaInput} onChange={(e) => this.handleFurigana(e.target.value)}></input>
+            <input className="addRomanji" placeholder="Romanji" value={romanjiInput} onChange={(e) => this.handleRomanji(e.target.value)}></input>
+            <input className="addEnglish" placeholder="English" value={englishInput} onChange={(e) => this.handleEnglish(e.target.value)}></input>
+            <button className="addDetails" onClick={() => this.addNewCard({kanji: kanjiInput, furigana: furiganaInput, romanji: romanjiInput, english: englishInput})}>Add Card</button> 　
          </div>
       )
    }
