@@ -35,6 +35,11 @@ class App extends Component {
   }
 
   changeMode() {
+    if(this.state.displayCard) {
+      axios.get('/api/kanji').then((response) => {
+        this.setState({cards: response.data, numCards: response.data.length})})
+      .catch((err) => console.log(err));
+    }
     this.setState({displayCard: !this.state.displayCard});
   }
   

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DisplayPartialCard from './DisplayPartialCard';
 import DisplayOnlyCard from './DisplayOnlyCard';
+import './styles/DisplayCardGame.css';
 
 class DisplayCardGame extends Component {
    constructor(props) {
@@ -30,7 +31,7 @@ class DisplayCardGame extends Component {
          randomIndex = Math.floor(Math.random() * currentIndex);
          currentIndex--;
 
-         //temporaryValue is as a placeholder of the current index, that way you can swpa them!
+         //temporaryValue is as a placeholder of the current index, that way you can swap them!
          temporaryValue = array[currentIndex];
          array[currentIndex] = array[randomIndex];
          array[randomIndex] = temporaryValue;
@@ -59,9 +60,10 @@ class DisplayCardGame extends Component {
             <div className="cardDifficulty">
                <div className="easyCards">
                   <h1 className="listEasy">I know these!</h1>
+                  <div className="organizeEasy">
                   {knowCards.map((element, index) => {
                      console.log(element)
-                     return (<div className="partialCard" key={index}>
+                     return (<div className="onlyCard" key={index}>
                         {/* We are accessing the first element of the array of each element! */}
                      <DisplayOnlyCard
                      kanji={element[0].kanji}
@@ -70,11 +72,13 @@ class DisplayCardGame extends Component {
                      english={element[0].english}/>
                      </div>
                   )})}
+                  </div>
                </div> 
                <div className="hardCards">
                   <h1 className="listHard">I need to study these.</h1>
+                  <div className="organizeHard">
                   {unknownCards.map((element, index) => {
-                     return (<div className="partialCard" key={index}>
+                     return (<div className="onlyCard" key={index}>
                      <DisplayOnlyCard
                      kanji={element[0].kanji}
                      furigana={element[0].furigana}
@@ -82,10 +86,12 @@ class DisplayCardGame extends Component {
                      english={element[0].english}/>
                      </div>
                   )})}
+                  </div>
                </div>
             </div>   
                : 
-               randomCards.map((element, index) => {
+               <div className="partialCardArea">
+               {randomCards.map((element, index) => {
                   return (<div className="partialCard" key={index}>
                      <DisplayPartialCard
                      id={index}
@@ -96,8 +102,8 @@ class DisplayCardGame extends Component {
                      thatsEasy={this.thatsEasy}
                      thatsHard={this.thatsHard}/>
                   </div>
-               )})
-               } 
+               )})} 
+            </div>}
          </div>
       )
    }

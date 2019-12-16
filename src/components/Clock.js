@@ -20,6 +20,10 @@ class Clock extends Component {
    }
 
    secondTimer() {
+      //set timer to 0 if we are modifying cards
+      if(this.props.displayCard) {
+         this.setState({timeElapsed: -1});
+      }
       var {timeElapsed} = this.state;
       timeElapsed++;
       this.setState({timeElapsed});
